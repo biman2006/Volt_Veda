@@ -1,0 +1,4 @@
+myenv/
+pycache/
+*.pkl (optional if model huge)
+
