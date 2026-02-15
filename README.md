@@ -108,4 +108,23 @@ Example response:
 
 ##✅ Battery Health Prediction
 
+POST /predict
+
+Request Body Example:
+{
+  "device_age_months": 18,
+  "battery_capacity_mah": 5000,
+  "avg_screen_on_hours_per_day": 6.5,
+  "avg_charging_cycles_per_week": 7,
+  "avg_battery_temp_celsius": 34,
+  "fast_charging_usage_percent": 60,
+  "overnight_charging_freq_per_week": 4,
+  "gaming_hours_per_week": 5,
+  "video_streaming_hours_per_week": 10,
+  "charging_habit_score": 8,
+  "usage_intensity_score": 9.5,
+  "thermal_stress_index": 6.2
+}
+
+
 
