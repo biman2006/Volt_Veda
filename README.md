@@ -106,7 +106,7 @@ Example response:
 
 ---
 
-##✅ Battery Health Prediction
+✅ Battery Health Prediction
 
 POST /predict
 
