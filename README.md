@@ -226,4 +226,4 @@ GitHub: https://github.com/biman2006/Volt_Veda
 
 ## ⭐ Support
 
-If you like this project, please give it a ⭐ on GitHub!
+If you like this project, please give it a ⭐ on GitHub!.
