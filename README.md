@@ -137,6 +137,9 @@ Response Example:
 ---
 
 
-
+⚙️ Installation & Setup (Local)
+1️⃣ Clone Repository
+git clone https://github.com/biman2006/Volt_Veda.git
+cd Volt_Veda
 
 
