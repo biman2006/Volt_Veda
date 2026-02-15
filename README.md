@@ -1,4 +1,4 @@
-# ⚡ Volt_Veda — Smartphone Battery Health Predictor (ML + FastAPI + Streamlit)
+Response Example:# ⚡ Volt_Veda — Smartphone Battery Health Predictor (ML + FastAPI + Streamlit)
 
 VoltVeda is a real-world Machine Learning project that predicts a smartphone’s **Battery Health Percentage** based on usage behavior, thermal stress, charging habits, and device age.
 
@@ -125,6 +125,15 @@ Request Body Example:
   "usage_intensity_score": 9.5,
   "thermal_stress_index": 6.2
 }
+
+Response Example:
+{
+  "predicted_battery_health_percent": 83.45,
+  "health_status": "GOOD",
+  "message": "Battery health is good. Avoid overheating and reduce fast charging."
+}
+
+
 
 
 
