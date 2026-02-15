@@ -142,4 +142,37 @@ Response Example:
 git clone https://github.com/biman2006/Volt_Veda.git
 cd Volt_Veda
 
+2️⃣ Create Virtual Environment
+python -m venv myenv
+
+myenv\Scripts\activate
+
+3️⃣ Install Backend Dependencies
+pip install -r requirements.txt
+
+4️⃣ Run FastAPI Backend
+uvicorn app.main:app --reload
+
+Backend will run on:
+📌 http://127.0.0.1:8000
+
+Swagger Docs:
+📌 http://127.0.0.1:8000/docs
+
+
+🎨 Running Streamlit Frontend (Local)
+1️⃣ Install Streamlit Dependencies
+pip install -r frontend/requirements.txt
+
+
+
+
+
+
+
+
+
+
+
+
 
