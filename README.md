@@ -1,116 +1,120 @@
-Response Example:# ⚡ Volt_Veda — Smartphone Battery Health Predictor (ML + FastAPI + Streamlit)
+# Volt_Veda AI ⚡🔋  
+Battery Health Predictor using Machine Learning + FastAPI + Streamlit
 
-VoltVeda is a real-world Machine Learning project that predicts a smartphone’s **Battery Health Percentage** based on usage behavior, thermal stress, charging habits, and device age.
+VoltVeda AI is a complete end-to-end Machine Learning project that predicts the battery health percentage of a smartphone based on usage habits, charging behavior, and thermal stress factors.
 
-This project is deployed with:
-- **FastAPI** as the backend inference API
-- **Streamlit** as the frontend UI
-- **Scikit-learn Pipeline + ColumnTransformer** for robust preprocessing and prediction
+This project contains:
+- A FastAPI backend (ML Prediction API)
+- A Streamlit frontend (User Interface)
+- A trained ML pipeline model (.pkl)
+- Deployment-ready structure (Railway supported)
 
----
+------------------------------------------------------------
 
-## 🚀 Live Demo
+## 🚀 Live Deployment
+live_link: https://talented-happiness-production-89a5.up.railway.app/
 
-### 🌐 Frontend (Streamlit UI)
-🔗 https://talented-happiness-production-89a5.up.railway.app
+Frontend (Streamlit App):
+https://talented-happiness-production-89a5.up.railway.app
 
-### ⚙️ Backend (FastAPI API)
-🔗 https://voltveda-production.up.railway.app
+Backend (FastAPI API):
+https://voltveda-production.up.railway.app
 
-### 📌 API Documentation (Swagger UI)
-🔗 https://voltveda-production.up.railway.app/docs
+FastAPI Docs (Swagger UI):
+https://voltveda-production.up.railway.app/docs
 
----
+------------------------------------------------------------
 
-## 📌 Project Features
+## 📌 Features
 
-✅ Predicts **Battery Health Percentage** using Linear Regression  
-✅ Uses **PowerTransformer (Yeo-Johnson)** to reduce skewness  
-✅ Handles missing values using **SimpleImputer**  
-✅ Scales numerical features using **StandardScaler**  
-✅ Encodes categorical features using **OneHotEncoder**  
-✅ Fully production-ready ML pipeline saved using `joblib`  
-✅ FastAPI endpoint for real-time predictions  
-✅ Streamlit frontend for user-friendly interaction  
-✅ Deployed on Railway with public domains
+✔ Predict Battery Health Percentage  
+✔ Shows Health Status (GOOD / MODERATE / BAD)  
+✔ Gives battery safety suggestions  
+✔ Fully working frontend + backend integration  
+✔ Deployable on Railway / Render / Cloud platforms  
+✔ Model loaded using Joblib (.pkl pipeline)
 
----
+------------------------------------------------------------
 
-## 🧠 Machine Learning Model
+## 🏗 Project Structure
 
-- **Algorithm**: Linear Regression
-- **Evaluation Metric**: R² Score
-- **Achieved Performance**: ~0.95 R² Score (excellent prediction accuracy)
+Volt_Veda/
+│
+├── app/
+│   ├── main.py
+│   └── model/
+│       └── Battery_health_pipeline.pkl
+│
+├── dataset/
+│   ├── battery_dataset_update.csv
+│   └── smartphone_battery_features.csv
+│
+├── frontend/
+│   ├── frontend.py
+│   └── requirements.txt
+│
+├── notebook/
+│   └── train.ipynb
+│
+├── requirements.txt
+├── runtime.txt
+├── .gitignore
+└── README.md
 
----
+------------------------------------------------------------
 
-## 🏗️ Tech Stack
+## ⚙ Tech Stack
 
-### Backend
+Backend:
 - FastAPI
-- Pydantic
 - Uvicorn
+- Pydantic
+- Python-Multipart
+- CORSMiddleware
 
-### Machine Learning
+Frontend:
+- Streamlit
+- Requests
+
+Machine Learning:
 - Scikit-learn
 - Pandas
 - NumPy
 - Joblib
 
-### Frontend
-- Streamlit
-- Requests
+Deployment:
+- Railway
 
-### Deployment
-- Railway Cloud
+------------------------------------------------------------
 
----
+## 🧠 Machine Learning Model Details
 
-## 📂 Project Structure
+Algorithm Used:
+- Linear Regression Pipeline
 
-Volt_Veda/
-│
-├── app/
-│ ├── main.py # FastAPI backend API
-│ ├── model/
-│ │ └── Battery_health_pipeline.pkl # Trained ML pipeline
-│
-├── frontend/
-│ ├── frontend.py # Streamlit UI
-│ └── requirements.txt # Streamlit dependencies
-│
-├── notebook/
-│ └── model_training.ipynb # Model training notebook (optional)
-│
-├── requirements.txt # Backend requirements
-├── runtime.txt # Python runtime version (optional)
-├── README.md # Project documentation
-└── .gitignore
+Pipeline Includes:
+- Data preprocessing
+- Feature scaling (if applied)
+- Model training
+- Full pipeline saved as .pkl
 
+Model File Location:
+app/model/Battery_health_pipeline.pkl
 
----
+------------------------------------------------------------
 
-## 🔥 API ENDPOINTS 
+## 🔥 API Endpoint Details (FastAPI)
 
-### ✅ Health Check
+Base URL:
+https://voltveda-production.up.railway.app
 
-`GET /`
-
-Returns a basic message confirming API is running.
-
-Example response:
-```json
-{
-  "message": "Battery Health Predictor API Running 🚀"
-}
-
----
-
-✅ Battery Health Prediction
-
+Endpoint:
 POST /predict
 
-Request Body Example:
+------------------------------------------------------------
+
+## 📩 Request Body Example
+
 {
   "device_age_months": 18,
   "battery_capacity_mah": 5000,
@@ -126,53 +130,100 @@ Request Body Example:
   "thermal_stress_index": 6.2
 }
 
-Response Example:
+------------------------------------------------------------
+
+## 📤 Response Example
+
 {
   "predicted_battery_health_percent": 83.45,
   "health_status": "GOOD",
   "message": "Battery health is good. Avoid overheating and reduce fast charging."
 }
 
+------------------------------------------------------------
 
----
+## 🖥 Running Backend Locally
 
-
-⚙️ Installation & Setup (Local)
-1️⃣ Clone Repository
-git clone https://github.com/biman2006/Volt_Veda.git
+Step 1: Go to project folder
 cd Volt_Veda
 
-2️⃣ Create Virtual Environment
+Step 2: Create virtual environment
 python -m venv myenv
 
+Step 3: Activate virtual environment
 myenv\Scripts\activate
 
-3️⃣ Install Backend Dependencies
+Step 4: Install requirements
 pip install -r requirements.txt
 
-4️⃣ Run FastAPI Backend
+Step 5: Run FastAPI backend
 uvicorn app.main:app --reload
 
 Backend will run on:
-📌 http://127.0.0.1:8000
+http://127.0.0.1:8000
 
 Swagger Docs:
-📌 http://127.0.0.1:8000/docs
+http://127.0.0.1:8000/docs
 
+------------------------------------------------------------
 
-🎨 Running Streamlit Frontend (Local)
-1️⃣ Install Streamlit Dependencies
-pip install -r frontend/requirements.txt
+## 🎨 Running Frontend Locally (Streamlit)
 
+Step 1: Go to frontend folder
+cd frontend
 
+Step 2: Install frontend requirements
+pip install -r requirements.txt
 
+Step 3: Run Streamlit app
+streamlit run frontend.py
 
+Frontend will run on:
+http://localhost:8501
 
+------------------------------------------------------------
 
+## 🌍 Deployment Notes (Railway)
 
+Backend Deployment Start Command:
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
+Frontend Deployment Start Command:
+cd frontend && streamlit run frontend.py --server.port $PORT --server.address 0.0.0.0
 
+Frontend Build Command:
+cd frontend && pip install -r requirements.txt
 
+------------------------------------------------------------
 
+## 🔒 CORS Fix (Important)
 
+CORS middleware is added in FastAPI backend to allow frontend requests:
 
+allow_origins=["*"]
+allow_methods=["*"]
+allow_headers=["*"]
+
+------------------------------------------------------------
+
+## 📌 Future Improvements
+
+- Add authentication (JWT)
+- Improve ML model accuracy using RandomForest/XGBoost
+- Add database support for storing predictions
+- Add visualization graphs in Streamlit dashboard
+- Add CI/CD pipeline
+
+------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Developed by: Biman Adhikary  
+Project Name: VoltVeda AI  
+GitHub: https://github.com/biman2006/Volt_Veda
+
+------------------------------------------------------------
+
+## ⭐ Support
+
+If you like this project, please give it a ⭐ on GitHub!
