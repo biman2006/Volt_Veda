@@ -90,6 +90,9 @@ Volt_Veda/
 
 ---
 
+
+---
+
 ## 🔥 API Endpoints
 
 ### ✅ Health Check
@@ -102,9 +105,10 @@ Example response:
 {
   "message": "Battery Health Predictor API Running 🚀"
 }
+✅ Battery Health Prediction
+POST /predict
 
-## Request Body Example
-
+Request Body Example:
 {
   "device_age_months": 18,
   "battery_capacity_mah": 5000,
@@ -119,17 +123,77 @@ Example response:
   "usage_intensity_score": 9.5,
   "thermal_stress_index": 6.2
 }
-
-## Response Body Example
-
+Response Example:
 {
   "predicted_battery_health_percent": 83.45,
   "health_status": "GOOD",
   "message": "Battery health is good. Avoid overheating and reduce fast charging."
 }
-
-## Clone Repository
+⚙️ Installation & Setup (Local)
+1️⃣ Clone Repository
 git clone https://github.com/biman2006/Volt_Veda.git
 cd Volt_Veda
+2️⃣ Create Virtual Environment
+python -m venv myenv
+Activate:
 
+Windows (PowerShell)
+myenv\Scripts\activate
+Mac/Linux
+source myenv/bin/activate
+3️⃣ Install Backend Dependencies
+pip install -r requirements.txt
+4️⃣ Run FastAPI Backend
+uvicorn app.main:app --reload
+Backend will run on:
+📌 http://127.0.0.1:8000
 
+Swagger Docs:
+📌 http://127.0.0.1:8000/docs
+
+🎨 Running Streamlit Frontend (Local)
+1️⃣ Install Streamlit Dependencies
+pip install -r frontend/requirements.txt
+2️⃣ Run Streamlit App
+streamlit run frontend/frontend.py
+Frontend will run on:
+📌 http://localhost:8501
+
+🌍 Deployment Notes
+This project is deployed on Railway with two services:
+
+✅ Backend Deployment (FastAPI)
+Start Command:
+
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+✅ Frontend Deployment (Streamlit)
+Start Command:
+
+streamlit run frontend/frontend.py --server.port $PORT --server.address 0.0.0.0
+🔐 CORS Support
+To allow frontend-backend communication, CORS middleware is enabled in FastAPI:
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+📌 Future Improvements
+🚀 Possible upgrades for VoltVeda:
+
+Add user authentication (JWT)
+
+Store prediction history using PostgreSQL
+
+Improve model using RandomForest / XGBoost
+
+Add feature importance visualization
+
+Add battery replacement recommendations based on threshold
+
+👨‍💻 Author
+Biman Adhikary
+📌 GitHub: https://github.com/biman2006
