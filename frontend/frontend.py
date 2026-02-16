@@ -70,6 +70,13 @@ if submit:
             st.write("### 🟢 Health Status:", result["health_status"])
             st.info(result["message"])
 
+            prediction=result["Predicted battery health percentage"]
+
+            st.write(f"🔋 Battery Health: **{prediction:.2f}%**")
+
+            progress_value=max(0,min(100,int(prediction)))
+            st.progress(progress_value)
+
 
         else:
             st.error(f"❌ API Error: {response.status_code}")
@@ -81,5 +88,8 @@ if submit:
         st.error("❌ Could not connect to FastAPI server.")
         st.write("Make sure FastAPI is running at: http://127.0.0.1:8000")
         st.write("Error:", str(e))
+
+
+
 
 
