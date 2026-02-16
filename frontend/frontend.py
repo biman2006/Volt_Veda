@@ -70,7 +70,7 @@ if submit:
             st.write("### 🟢 Health Status:", result["health_status"])
             st.info(result["message"])
 
-            prediction=result["Predicted_battery_health_percent"]
+            prediction=result["predicted_battery_health_percent"]
 
             st.write(f"🔋 Battery Health: **{prediction:.2f}%**")
 
