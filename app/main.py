@@ -37,6 +37,17 @@ license_info={
 )
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://your-frontend-url.up.railway.app"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
 
 
 import os
@@ -119,9 +130,12 @@ def predict_battery_health(data:BatteryInput):
           elif prediction>=70:
                status="GOOD 🟢"
                msg="Battery health is good. Avoid overheating and reduce fast charging."
+          elif prediction>=50:
+               status="Average 🟡"
+               msg="Battery health is average. Consider improving charging habits and avoid overnight charging."
           else:
-               status="POOR 🔴"
-               msg="Battery health is poor. Battery replacement may be needed soon."
+            status = "POOR 🔴"
+            msg = "Battery health is poor. Battery replacement or servicing is recommended."
 
 
           return{
