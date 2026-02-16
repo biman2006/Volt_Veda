@@ -4,7 +4,7 @@ import requests
 st.set_page_config(page_title="VoltVeda AI", page_icon="🔋", layout="centered")
 st.title("🔋Battery Health Predictor")
 st.write("Enter your smartphone usage & charging details to predict battery health percentage.")
-FASTAPI_URL="https://voltveda-production.up.railway.app/predict"
+FASTAPI_URL="https://talented-happiness-production-89a5.up.railway.app/predict"
 
 
 
