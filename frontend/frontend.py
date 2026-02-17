@@ -59,8 +59,9 @@ if submit:
 
     }
     try:
-        response=requests.post(FASTAPI_URL, json=input_data)
-        if response.status_code==200:
+        with st.spinner("⏳ Predicting battery health... Please wait"):
+         response=requests.post(FASTAPI_URL, json=input_data)
+         if response.status_code==200:
             result=response.json()
 
 
@@ -78,9 +79,9 @@ if submit:
             st.progress(progress_value)
 
 
-        else:
-            st.error(f"❌ API Error: {response.status_code}")
-            st.write(response.text)
+         else:
+             st.error(f"❌ API Error: {response.status_code}")
+             st.write(response.text)
 
 
 
